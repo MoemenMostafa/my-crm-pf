@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from "./app.service";
 import * as _ from "lodash";
-import {forEach} from "@angular/router/src/utils/collection";
 
 import { Dijkstra } from "./dijkstra";
 

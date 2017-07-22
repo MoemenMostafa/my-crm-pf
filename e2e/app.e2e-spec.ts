@@ -1,14 +1,14 @@
-import { MyCrm2Page } from './app.po';
+import { MyCrmPage } from './app.po';
 
 describe('my-crm App', () => {
-  let page: MyCrm2Page;
+  let page: MyCrmPage;
 
   beforeEach(() => {
-    page = new MyCrm2Page();
+    page = new MyCrmPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display title \'Pick Your Trip\'', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('Pick Your Trip');
   });
 });

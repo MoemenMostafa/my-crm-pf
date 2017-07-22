@@ -1,5 +1,11 @@
 # MyCrm
 
+## Prerequisite
+ 
+ * NodeJs v6.9.x+ (https://nodejs.org/en/download/)
+ * NPM v 3.x.x+ (Comes with NodeJs)
+ * Angular CLI 1.2.2+ (https://cli.angular.io/)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.2.
 
 ## Development server
@@ -17,6 +23,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+Note: It is not working because of an incompatibility with bootstrap module
 
 ## Running end-to-end tests
 

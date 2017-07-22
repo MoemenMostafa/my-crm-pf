@@ -1,11 +1,11 @@
 import { browser, by, element } from 'protractor';
 
-export class MyCrm2Page {
+export class MyCrmPage {
   navigateTo() {
     return browser.get('/');
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('.trip-form h2')).getText();
   }
 }
