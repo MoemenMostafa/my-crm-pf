@@ -1,5 +1,11 @@
 # MyCrm
 
+## Technologies & Frameworks
+
+ * Angular 4
+ * TypeScript 2
+ * BootStrap
+ 
 ## Prerequisite
  
  * NodeJs v6.9.x+ (https://nodejs.org/en/download/)
