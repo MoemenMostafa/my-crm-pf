@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+  background-image: URL('./assets/background.jpg');
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.btn-primary {
+  background: $primary-color;
+  border-color: $primary-border-color;
+}
+
+.btn-primary:hover {
+  color: $white;
+  background-color: $primary-color-hover;
+  border-color: $primary-border-color;
+}
+.dark-background{
+  background: $dark !important;
+}
