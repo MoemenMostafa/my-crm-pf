@@ -1,6 +1,6 @@
 import { MyCrm2Page } from './app.po';
 
-describe('my-crm2 App', () => {
+describe('my-crm App', () => {
   let page: MyCrm2Page;
 
   beforeEach(() => {
