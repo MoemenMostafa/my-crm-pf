@@ -1,10 +1,11 @@
 # MyCrm
 
-## Technologies & Frameworks
+## Technologies, Libraries & Frameworks
 
  * Angular 4
  * TypeScript 2
  * BootStrap
+ * Lodash
  
 ## Prerequisite
  
