@@ -103,7 +103,6 @@ export class AppComponent {
 
   search(){
     delete this.message;
-    console.log("form submitted..");
     if (this.trip.from == this.trip.to || this.trip.from == "" || this.trip.to == ""){
       this.message = {
         title: 'Error!',
