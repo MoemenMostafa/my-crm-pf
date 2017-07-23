@@ -15,6 +15,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.2.
 
+## Installation
+
+* clone this repo
+
+`$ git clone https://github.com/MoemenMostafa/my-crm-pf`
+
+* navigate to project folder
+
+`& cd my-crm-pf`
+
+* install dependencies
+
+`$ npm install`
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
