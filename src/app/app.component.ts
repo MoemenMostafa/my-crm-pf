@@ -45,8 +45,6 @@ export class AppComponent {
   start() {
     this.appService.getData().then(
       (data: IData) => {
-
-        console.log(data);
         this.currency = data.currency;
         this.deals = data.deals;
         this.departureList = this.getDepartureList();
