@@ -74,15 +74,48 @@ export class AppComponent {
 
   buildGraph(node, type){
     let unSortedNodeSet = _.filter(this.unVisitedSet, {'departure': node});
+    // ToDo: move the following to be handled by a class
     unSortedNodeSet = _.map(unSortedNodeSet, function(element) {
         return _.extend({}, element, {durationMin: parseInt(element.duration.m) +  parseInt(element.duration.h)*60,
           finalCost: element.cost * (100-element.discount)/100});
       });
+    let uniqueSortedNodeSet = this.getUniqueRoutes(unSortedNodeSet, type);
+    this.unVisitedSet = this.excludeVisitedNodes(this.unVisitedSet, node);
+    this.addVertexToGraph(uniqueSortedNodeSet);
+    // Loop trough all nodes
+    uniqueSortedNodeSet.forEach(
+      (route)=>{
+        this.buildGraph(route.arrival,this.trip.type);
+      }
+    )
+  }
+
+  /**
+   * Returns a unique set of routes from a node to all its neighbors
+   * @param {IDeal[]} unVisitedSet  [description]
+   * @param {string} type  [finalCost || durationMin]
+   */
+  private getUniqueRoutes(unSortedNodeSet: IDeal[], type: string){
     let sortedNodeSet = _.sortBy(unSortedNodeSet, type);
-    let uniqueSortedNodeSet = _.uniqBy(sortedNodeSet, 'arrival');
-    this.unVisitedSet = _.filter(this.unVisitedSet, (deal)=>{
-      return deal.departure !== node;
+    return _.uniqBy(sortedNodeSet, 'arrival');
+  }
+
+  /**
+   * Removes node from a nodelist the Vertex and Add it to the graph
+   * @param {IDeal[]} unVisitedSet  [description]
+   * @param {string} nodeName  [description]
+   */
+  private excludeVisitedNodes(unVisitedSet: IDeal[], nodeName:string){
+    return _.filter(unVisitedSet, (deal)=>{
+      return deal.departure !== nodeName;
     });
+  }
+
+  /**
+   * Creates the Vertex and Add it to the graph
+   * @param {IDeal[]} uniqueSortedNodeSet  [description]
+   */
+  private addVertexToGraph(uniqueSortedNodeSet: IDeal[]){
     let neighbors= [];
     let i = 0;
     uniqueSortedNodeSet.forEach(
@@ -94,15 +127,11 @@ export class AppComponent {
         }
       }
     )
-    uniqueSortedNodeSet.forEach(
-      (route)=>{
-        this.buildGraph(route.arrival,this.trip.type)
-      }
-    )
   }
 
   search(){
     delete this.message;
+    // ToDo: move this to a form validation method or use Angular 2 form validation
     if (this.trip.from == this.trip.to || this.trip.from == "" || this.trip.to == ""){
       this.message = {
         title: 'Error!',
